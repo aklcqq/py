@@ -11,6 +11,19 @@ from bs4 import BeautifulSoup
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+##
+
+from selenium.webdriver import Firefox
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support import expected_conditions as expected
+from selenium.webdriver.support.wait import WebDriverWait
+
+options = Options()
+options.add_argument('-headless')
+
+
 
 ## def
 
@@ -64,7 +77,7 @@ for id in word_id_list:
 
 
 # use firefox as sebrowser
-driver = webdriver.Firefox()
+driver = webdriver.Firefox(executable_path='geckodriver',options=options)
 
 for id in word_id_list:
     ## preparation for url
